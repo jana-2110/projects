@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Attendance System</title>
+    <link rel="stylesheet" href="styles.css">
+       <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-left">
+            <img src="/assets/Annamalai University logo.jpg" alt="Logo" class="logo">
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Academic</a></li>
+                <li><a href="#">Leave</a></li>
+                <li><a href="#"> Report</a></li>
+            </ul>
+        </div>
+        <div class="nav-right">
+            <span id="date-time"></span>
+            <div class="profile">           
+                <img src="/assets/user.jpg" alt="User" class="profile-img">
+                <span class="user-name">Jana</span>
+                <div class="dropdown">
+                    <ul>
+                        <li><a href="#">Profile</a></li>
+                        <li><a href="#">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+ <!--  navbar finalized-->
+<div class="main-container">
+<div class="top-section">
+<!--  att card-->
+<div class="attendance-card">
+    <h2>Attendance</h2>
+    <div class="progress-container">
+        <svg class="progress-circle" width="120" height="120">
+            <circle class="bg-circle" cx="60" cy="60" r="50"></circle>
+            <circle class="fill-circle" cx="60" cy="60" r="50"></circle>
+        </svg>
+        <div class="percentage-text">
+            <span id="attendance-percent">80%</span>
+        </div>
+    </div>
+
+    <div class="attendance-info">
+        <div class="info-box">
+            <p>Total Classes</p>
+            <span id="total-classes">100</span>
+        </div>
+        <div class="info-box">
+            <p>Attended</p>
+            <span id="attended-classes">80</span>
+        </div>
+        <div class="info-box">
+            <p>Needed for 85%</p>
+            <span id="needed-classes">5</span>
+        </div>
+    </div>
+
+    <button class="calculate-btn">Check Attendance</button>
+</div>
+<!-- att card finalized-->
+<!-- greating card-->
+<div class="greeting-card">
+    <div class="greeting-text">
+        <h2 id="greeting-message">Hi, Student</h2>
+        <p id="sub-text">Have a great day!</p>
+    </div>
+    <div class="greeting-vd">
+        <video autoplay loop muted playsinline>
+            <source src="./assets/greating-gif.mp4" type="video/mp4">
+        </video>
+    </div>
+</div>
+
+<!--greating card finalized-->
+<!-- std card-->
+<div class="student-profile">
+    <div class="student-image">
+        <img id="student-img" src="" alt="Student Image">
+    </div>
+    <div class="student-info">
+        <h2 id="student-name">Loading...</h2>
+        <p><strong>Roll No:</strong> <span id="student-roll"></span></p>
+        <p><strong>Department:</strong> <span id="student-dept"></span></p>
+        <p><strong>Year:</strong> <span id="student-year"></span></p>
+        <p><strong>Report:</strong> <span id="student-reports"></span></p>
+    </div>
+</div>
+<!--std card finalized-->
+</div>
+
+
+<!--bottom -->
+
+<div class="bottom-section">
+
+    <!-- leave card-->
+<div class="leave-statistics">
+    <h2>Leave Stats</h2>
+    
+    <!-- Circular Progress -->
+    <div class="leave-circle">
+        <svg width="100" height="100" viewBox="0 0 100 100">
+            <!-- Background Circle -->
+            <circle cx="50" cy="50" r="40" stroke="#ddd" stroke-width="8" fill="none"></circle>
+            <!-- Progress Circle (Dynamic) -->
+            <circle id="leave-progress" cx="50" cy="50" r="40" stroke="green" stroke-width="8" fill="none"
+                stroke-dasharray="251.2" stroke-dashoffset="251.2"></circle>
+            <!-- Text Inside Circle -->
+        </svg>
+        <div class=" inside-text">
+            
+            <span id="leave-text"></span>
+
+        </div>
+    </div>
+
+    <!-- Leave Count -->
+    <p id="leave-count">0/25</p>
+
+    <!-- Remaining Days Button -->
+    <button id="remaining-btn">Check Remaining</button>
+
+    <!-- Warning Box -->
+    <div id="warning-box" class="hidden"></div>
+</div>
+<div class="line-chart-container">
+    <canvas id="attendanceChart"></canvas>
+</div>
+<!--call section-->
+<div class="calendar-container">
+    <div class="calendar-header">
+        <button id="prev-month">◀</button>
+        <h2 id="month-year"></h2>
+        <button id="next-month">▶</button>
+    </div>
+    <div class="calendar-weekdays">
+        <div>Sun</div> <div>Mon</div> <div>Tue</div> <div>Wed</div> <div>Thu</div> <div>Fri</div> <div>Sat</div>
+    </div>
+    <div class="calendar-days" id="calendar-days">
+        <!-- JavaScript will generate the days here -->
+    </div>
+</div>
+
+<!--call finalized-->
+
+</div>
+<!--bottom-->
+</div>
+<!-- leave card finalized-->
+ 
+    <script src="script.js"></script>
+</body>
+</html>
